@@ -2,12 +2,10 @@
 
 <% @products.each do |product| %>
   <div>
-    <h2><%= product.title %></h2>
+    <h2><%= link_to product.title, product_path(product) %></h2>
     <p><%= product.description %></p>
     <p>Price: <%= number_to_currency(product.price) %></p>
     <p>Stock: <%= product.stock_quantity %></p>
+    <p>Category: <%= product.category.name %></p>
   </div>
 <% end %>
-
-<h2><%= link_to product.title, product_path(product) %></h2>
-<p>Category: <%= product.category.name %></p>

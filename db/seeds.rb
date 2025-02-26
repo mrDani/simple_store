@@ -8,10 +8,6 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-require 'faker'
-require 'csv'
-
-
 require 'csv'
 
 Product.destroy_all
@@ -19,7 +15,6 @@ Category.destroy_all
 
 csv_file = Rails.root.join('db/products.csv')
 csv_data = File.read(csv_file)
-
 products = CSV.parse(csv_data, headers: true)
 
 products.each do |product|
@@ -33,3 +28,4 @@ products.each do |product|
     stock_quantity: product['stock_quantity']
   )
 end
+
